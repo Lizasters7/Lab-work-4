@@ -1,17 +1,12 @@
-#include "Data.h"
-#include <thread>
+#include "generator.h"
 #include <iostream>
 
 int main() {
-    Data d;
-    auto work = [&] {
-        for (int k = 0; k < 100000; ++k) {
-            d.set(k % 2, k);
-            d.get(1);
-            std::string s = d;
-        }
-    };
-    std::thread t1(work), t2(work), t3(work);
-    t1.join(); t2.join(); t3.join();
-    std::cout << std::string(d) << "\n";
+    Generator gen(1200000, "tests");      
+
+    gen.generateScenario("a", {10, 5, 50, 10, 25});   
+    gen.generateScenario("b", {20, 20, 20, 20, 20});  
+    gen.generateScenario("c", {5, 40, 5, 40, 10});    
+
+    std::cout << "Files generated\n";
 }
