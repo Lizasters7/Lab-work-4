@@ -16,6 +16,7 @@ endif()
 add_executable(Lab-work-4
     data.cpp
     generator.cpp
+    timer.cpp
     main.cpp
 )
 
