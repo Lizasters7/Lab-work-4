@@ -19,13 +19,18 @@ std::vector<Operation> Timer::loadFile(const std::string& path) {
     std::string cmd;
     while (in >> cmd) {
         Operation op;
-        if (cmd == "read") {
+        if (cmd == "read") 
+        {
             op.type = Operation::Type::Read;
             in >> op.field;
-        } else if (cmd == "write") {
+        } 
+        else if (cmd == "write") 
+        {
             op.type = Operation::Type::Write;
             in >> op.field >> op.value;
-        } else {
+        } 
+        else 
+        {
             op.type = Operation::Type::String;
         }
         ops.push_back(op);
